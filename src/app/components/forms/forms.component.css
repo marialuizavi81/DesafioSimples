@@ -1,0 +1,23 @@
+.Tudinho{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.Formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 35%;
+}
+
+.botons{
+    display: flex;
+    gap: 20px;
+    
+
+}
+
+.textos{
+
+}

@@ -1,0 +1,29 @@
+
+<div class="Tudinho">
+<div class="Formulario">
+<input type="text" placeholder="Escreva seu nome" [(ngModel)]="nome" />
+
+<input type="text" placeholder="Escreva sua idade" [(ngModel)]="idade"/>
+
+<input type="text" placeholder="escreva sua cidade" [(ngModel)]="cidade "/> 
+</div>
+
+<div class="botons">
+<button (click)="clicarBotao()">Boas vindas</button>
+
+<button (click)="suaIdade()"> sabe qual sua idade?</button>
+
+<button (click)="cidadezinha()"> a sua cidade é:  </button>
+
+<button (click)="apaga()"> apagar </button>
+
+<button [disabled]="naoPode" (click)="enviar()" > Enviar </button>
+
+</div>
+
+<div class="textos">
+    <h2> Nome:  {{ nome }}</h2>
+    <h2> voce ja tem: {{ idade }}</h2>
+    <h2> e ainda esta morando em:  {{ cidade }} </h2>
+</div>
+</div>
