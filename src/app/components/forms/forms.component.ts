@@ -10,11 +10,18 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class FormsComponent {
-  
+    idParaTransformar? : number;
     nome:string= '';
-    idade = null;
+    idade: number = 0;
     cidade: string= '';
-    naoPode: boolean = true; 
+    naoPode: boolean = false; 
+    Mostrar:boolean = false;
+    status: boolean = true;
+
+    listaPessoa: Array<{ id: number; nome: string; idade: number; cidade: string; status: boolean;}> = [];
+id: number = 1; 
+
+
 
     clicarBotao(){
       if (this.nome == ''){
@@ -40,14 +47,45 @@ export class FormsComponent {
     }
     apaga(){
     this.nome='';
-    this.idade = null;
+    this.idade = 0;
     this.cidade= '';
     }
 
     enviar(){
-      //if( this.naoPode == false )
-    console.log("foi emviado "+ this.nome +" com idade de "+ this.idade + " da cidade de "+ this.cidade )
-    this.apaga()
+     
+    console.log("foi emviado "+ this.nome +" com idade de "+ this.idade + " da cidade de "+ this.cidade );
+
+    this.listaPessoa.push({
+    id: this.id,
+    nome: this.nome,
+    idade: this.idade,
+    cidade: this.cidade,
+    status: this.status
+  });
+
+    this.id++
+    console.log(this.listaPessoa)
+
+      this.apaga()
     }
 
+    botaoEsconde(){
+          if ( this.Mostrar == false
+           ){
+              this.Mostrar = true;
+          }else{
+              this.Mostrar = false;
+          }
+    }
+
+    transformando() {
+  const pessoa = this.listaPessoa.find(p => p.id === this.idParaTransformar);
+  if (pessoa) {
+    pessoa.status = !pessoa.status;
+  } else {
+    console.warn("Pessoa não encontrada com o id:", this.idParaTransformar);
+  }}
+
+
+  
 }

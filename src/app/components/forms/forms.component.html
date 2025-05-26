@@ -1,5 +1,10 @@
 
 <div class="Tudinho">
+    <div><button (click)="botaoEsconde()" > escondendo</button></div>
+    
+
+@if (Mostrar == true ) {
+
 <div class="Formulario">
 <input type="text" placeholder="Escreva seu nome" [(ngModel)]="nome" />
 
@@ -7,6 +12,9 @@
 
 <input type="text" placeholder="escreva sua cidade" [(ngModel)]="cidade "/> 
 </div>
+
+}@else {}
+
 
 <div class="botons">
 <button (click)="clicarBotao()">Boas vindas</button>
@@ -25,5 +33,26 @@
     <h2> Nome:  {{ nome }}</h2>
     <h2> voce ja tem: {{ idade }}</h2>
     <h2> e ainda esta morando em:  {{ cidade }} </h2>
+</div>
+
+<div class="listagem">
+@for (item of listaPessoa; track $index ) {
+    <p [ngStyle]="{'color': item.status ? 'black': 'red'}">
+    {{item.id}} Pessoa {{ item.nome }} tem {{item.idade}} e mora na cidade  {{item.cidade}}
+    </p>
+}@empty {
+    <P>Nao existe mais nada na listagem</P>
+}
+
+</div>
+<div>
+<input type="number" placeholder="escreva um id para trasformalo em inativo"  [(ngModel)]="idParaTransformar"/>
+<button (click)="transformando()" [disabled]="listaPessoa.length === 0">Transformar</button>
+
+</div>
+<div>
+
+
+
 </div>
 </div>
